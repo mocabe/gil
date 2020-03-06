@@ -95,12 +95,6 @@ public:
         allocate_and_copy(img.dimensions(),img._view);
     }
 
-    template <typename P2, bool IP2, typename Alloc2>
-    image(const image<P2,IP2,Alloc2>& img) : _memory(nullptr), _align_in_bytes(img._align_in_bytes), _alloc(img._alloc)
-                                           , _allocated_bytes( img._allocated_bytes ) {
-       allocate_and_copy(img.dimensions(),img._view);
-    }
-
     image& operator=(const image& img) {
         if (dimensions() == img.dimensions())
             copy_pixels(img._view,_view);
